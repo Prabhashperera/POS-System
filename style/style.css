@@ -7,11 +7,20 @@
 :root {
   --color-dark-blue: #023047;
   --color-light-blue: #8ecae6;
-  --color-blue-buttons: #219EBC;
+  --color-blue-buttons: #219ebc;
   --color-orange: #fb8500;
   --color-yellow: #ffb703;
 }
 
 .brandName {
-  font-size: 20px;
+  color: white;
+}
+
+.navbar {
+  background-color: var(--color-dark-blue);
+  color: white;
+}
+
+.nav-link {
+  color: white;
 }
