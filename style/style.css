@@ -3,3 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --color-dark-blue: #023047;
+  --color-light-blue: #8ecae6;
+  --color-blue-buttons: #219EBC;
+  --color-orange: #fb8500;
+  --color-yellow: #ffb703;
+}
+
+.brandName {
+  font-size: 20px;
+}
