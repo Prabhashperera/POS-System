@@ -24,3 +24,28 @@
 .nav-link {
   color: white;
 }
+
+.hero {
+  border-radius: 1rem;
+  background-color: #023047;
+  width: 100vw;
+  min-height: 500px;
+}
+
+@media (max-width: 576px) {
+  .hero {
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
