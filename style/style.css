@@ -35,7 +35,7 @@
 
 .customer-form {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 10%;
   color: white;
   justify-content: center;
@@ -67,6 +67,11 @@
   color: white !important;
   opacity: 1 !important;
   background-color: rgb(16, 0, 59);
+}
+
+.crud-customer-btn-grp button {
+  width: 150px;
+  border-radius: 5px !important;
 }
 
 @media (max-width: 576px) {
