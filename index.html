@@ -55,7 +55,7 @@
     <!-- NAVBAR SECTION -->
     <!--  -->
     <!-- Customer Section -->
-    <section class="container hero position-relative mt-5">
+    <section class="container hero position-relative mt-4">
       <main class="p-4">
         <form class="customer-form d-flex gap-4">
           <section>
@@ -83,10 +83,81 @@
               <input type="text" placeholder="0704570029" />
             </div>
           </section>
+          <!-- Search Customer -->
+          <section class="mx-5">
+            <div class="mx-5">
+              <label for="" class="d-block my-2">Search Customer</label>
+              <input type="text" placeholder="Kasun" />
+              <button class="btn btn-outline-danger search-btn">Search</button>
+            </div>
+          </section>
           <!-- btns -->
         </form>
-        <section></section>
+        <section class="btn-group crud-customer-btn-grp gap-3">
+          <button class="btn btn-success">Save</button>
+          <button class="btn btn-danger">Remove</button>
+          <button class="btn btn-primary">Update</button>
+          <button class="btn btn-outline-warning">Refresh</button>
+        </section>
       </main>
+    </section>
+
+    <!-- Table Section -->
+    <section class="container customer-table-section">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Address</th>
+            <th scope="col">Mobile number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">C001</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>0789978009</td>
+          </tr>
+          <tr>
+            <th scope="row">C002</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>0704570029</td>
+          </tr>
+          <tr>
+            <th scope="row">C003</th>
+            <td>Jacob</td>
+            <td>Ppecab</td>
+            <td>0704570029</td>
+          </tr>
+          <tr>
+            <th scope="row">C001</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>0789978009</td>
+          </tr>
+          <tr>
+            <th scope="row">C001</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>0789978009</td>
+          </tr>
+          <tr>
+            <th scope="row">C001</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>0789978009</td>
+          </tr>
+          <tr>
+            <th scope="row">C001</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>0789978009</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <script

@@ -12,6 +12,18 @@
   --color-yellow: #ffb703;
 }
 
+.btn-success {
+  background-color: rgb(0, 185, 40) !important;
+}
+.btn-danger {
+  background-color: red;
+}
+
+.search-btn {
+  margin-top: 10px;
+  width: 200px;
+}
+
 .brandName {
   color: white;
 }
@@ -30,12 +42,12 @@
   border-radius: 1rem;
   background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
   width: 100vw;
-  min-height: 500px;
+  min-height: 350px;
 }
 
 .customer-form {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 10%;
   color: white;
   justify-content: center;
@@ -70,8 +82,30 @@
 }
 
 .crud-customer-btn-grp button {
+  position: relative;
+  font-size: 0.9rem;
+  left: 13%;
+  top: 32vh;
   width: 150px;
   border-radius: 5px !important;
+}
+
+.customer-table-section {
+  position: relative;
+  width: 100vw;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 1rem;
+  background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
+  overflow-y: scroll;
+}
+
+.customer-table-section .table {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  top: 40px;
+  color: white;
 }
 
 @media (max-width: 576px) {
