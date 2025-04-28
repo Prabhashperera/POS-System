@@ -4,6 +4,13 @@ let customerSection = document.getElementsByClassName("customer_Section")[0];
 let homePageSection = document.getElementsByClassName("homePage_Section")[0];
 
 
+let customerID = document.getElementsByClassName("customer_ID")[0];
+let customerName = document.getElementsByClassName("customer_Name")[0];
+let customerAddress = document.getElementsByClassName("customer_Address")[0];
+let customerNumber = document.getElementsByClassName("customer_Number")[0];
+
+
+
 customerBtn.addEventListener("click" , () => {
     customerSection.style.display = "block";
     homePageSection.style.display = "none";
