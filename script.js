@@ -16,10 +16,10 @@ homeBtn.addEventListener("click" , () => {
 })
 
 //Save
-let customerSaveBtn = $("customer_Save_Clicked");
+let customerSaveBtn = $(".customer_Save_Clicked");
 let customerTable = $(".customer_Table");
 
-customerSaveBtn.addEventListener("click" , () => {
+customerSaveBtn.on("click" , () => {
 
     $(".customer_ID").val("C001");
     let customerID = $(".customer_ID").val();
