@@ -108,6 +108,11 @@
   color: white;
 }
 
+.search-customer {
+  width: 100%;
+  right: -500px;
+}
+
 @media (max-width: 576px) {
   .hero {
     border-radius: 0;
@@ -124,4 +129,8 @@
 }
 
 @media (min-width: 1400px) {
+}
+
+.customer_Section {
+  display: none;
 }
