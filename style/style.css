@@ -43,17 +43,26 @@
   border: none;
   outline: none;
   font-size: 13px;
+  transition: all 1.5s;
 }
 
 .customer-form input:focus {
   transition: 0.5s;
   border-radius: 5px;
+  font-style: italic;
 }
 
 .customer-form [type="text"] {
   border: none;
   border-bottom: 2px solid blue;
   padding-left: 10px;
+}
+
+.customer_id_input:disabled {
+  border-bottom: 2px solid rgb(30, 255, 0) !important;
+  color: white !important;
+  opacity: 1 !important;
+  background-color: rgb(16, 0, 59);
 }
 
 @media (max-width: 576px) {
