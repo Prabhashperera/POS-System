@@ -35,11 +35,25 @@
 .customer-form {
   color: white;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
+}
+
+.customer-form input {
+  width: 300px;
+  height: 35px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+}
+
+.customer-form input:focus {
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.customer-form [type="text"] {
+  border: none;
+  border-bottom: 2px solid blue;
+  padding-left: 10px;
 }
 
 @media (max-width: 576px) {
