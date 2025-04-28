@@ -26,6 +26,7 @@
 }
 
 .hero {
+  position: relative;
   border-radius: 1rem;
   background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
   width: 100vw;
@@ -33,8 +34,11 @@
 }
 
 .customer-form {
+  position: absolute;
+  top: 15%;
+  left: 10%;
   color: white;
-  position: relative;
+  justify-content: center;
 }
 
 .customer-form input {

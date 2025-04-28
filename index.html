@@ -57,10 +57,15 @@
     <!-- Customer Section -->
     <section class="container hero position-relative mt-5">
       <main class="p-4">
-        <form class="customer-form">
+        <form class="customer-form d-flex flex-column">
           <div>
             <label for="" class="d-block my-2">Customer ID</label>
-            <input class="customer_id_input" type="text" placeholder="C001" disabled />
+            <input
+              class="customer_id_input"
+              type="text"
+              placeholder="C001"
+              disabled
+            />
           </div>
           <div>
             <label for="" class="d-block my-2">Customer Name</label>
@@ -74,7 +79,13 @@
             <label for="" class="d-block my-2">Mobile Number</label>
             <input type="text" placeholder="0704570029" />
           </div>
+          <div class="btn-group gap-2 mt-3">
+            <button class="btn btn-success">Save</button>
+            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-primary">Update</button>
+          </div>
         </form>
+        <section></section>
       </main>
     </section>
 
