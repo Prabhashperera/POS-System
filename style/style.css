@@ -90,7 +90,8 @@
   border-radius: 5px !important;
 }
 
-.customer-table-section {
+.customer-table-section,
+.item-table-section {
   position: relative;
   width: 100vw;
   height: 300px;
@@ -100,7 +101,8 @@
   overflow-y: scroll;
 }
 
-.customer-table-section .table {
+.customer-table-section .table,
+.item-table-section .table {
   width: 85%;
   margin: auto;
   position: relative;
@@ -132,5 +134,9 @@
 }
 
 .customer_Section {
+  display: none;
+}
+
+.items_Section {
   display: none;
 }
