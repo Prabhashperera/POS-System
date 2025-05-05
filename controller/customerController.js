@@ -56,6 +56,7 @@ function loadCustomerTable() {
                 $(".customer_Name").val(selectedCustomerName);
                 $(".customer_Address").val(selectedCustomerAddress);
                 $(".customer_Number").val(selectedCustomerNumber);
+                $(".customer_ID").prop("disabled", true);
             }
         });
 
@@ -109,7 +110,6 @@ customerSaveBtn.on("click" , () => {
 
 
 // TODO: Delete Customer
-
 let customerRemoveBtn = $(".customer_Remove_Clicked");
 
 customerRemoveBtn.on("click", () => {
@@ -122,10 +122,50 @@ customerRemoveBtn.on("click", () => {
     localStorage.setItem('customers_data' , JSON.stringify(updatedArray));
 
     Swal.fire({
-        title: "Customer Removed!",
-        icon: "success"
+        title: "Customer Saved!",
+        icon: "success",
+        draggable: true
     });
 
     loadData();
     loadCustomerTable();
 })
+
+// Update Customer
+let customerUpdateBtn = $(".customer_Update_Clicked");
+
+customerUpdateBtn.on("click", () => {
+    if(selectedCustomerId != null) {
+        let customersData = localStorage.getItem('customers_data');
+        let newData = JSON.parse(customersData);
+        let foundIndex = newData.findIndex((c) => c.cust_ID === selectedCustomerId);
+        if(foundIndex != -1) {
+            newData[foundIndex].cust_Name = $(".customer_Name").val();
+            newData[foundIndex].cust_Address = $(".customer_Address").val();
+            newData[foundIndex].cust_Number = $(".customer_Number").val();
+
+            localStorage.setItem('customers_data' , JSON.stringify(newData));
+            loadData();
+            loadCustomerTable();
+
+            Swal.fire({
+                title: "Updated Customer!",
+                icon: "success",
+                draggable: true
+            });
+        }else {
+            Swal.fire({
+                title: "Not Updated!",
+                icon: "warning",
+                draggable: true
+            });
+        }
+
+    }else {
+        Swal.fire({
+            title: "Select A Customer!",
+            icon: "warning",
+            draggable: true
+        });
+    }
+});
