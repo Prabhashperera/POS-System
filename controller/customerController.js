@@ -16,7 +16,7 @@ function loadData() {
 loadData();
 loadCustomerTable();
 
-// Load Customer Table
+//TODO: Load Customer Table
 function loadCustomerTable() {
     let customerTable = $(".customer_Table").empty();
     customers_DB.map((customer) => {  //Map All the data from DB Array and assign it to Customer Table
@@ -96,7 +96,7 @@ customerSaveBtn.on("click" , () => {
     if(!isExistID) {
         customers_DB.push(customerData); //Push customer Data to DB
         localStorage.setItem('customers_data',  JSON.stringify(customers_DB)); //Save DB to LocalStorage
-        loadCustomerTable(); //Load Table
+        refreshPage(); //Load Table
         if(customerData != null) {
             Swal.fire({
                 title: "Customer Saved!",
@@ -129,10 +129,10 @@ customerRemoveBtn.on("click", () => {
     });
 
     loadData();
-    loadCustomerTable();
+    refreshPage();
 })
 
-// Update Customer
+//TODO: Update Customer
 let customerUpdateBtn = $(".customer_Update_Clicked");
 
 customerUpdateBtn.on("click", () => {
@@ -147,7 +147,7 @@ customerUpdateBtn.on("click", () => {
 
             localStorage.setItem('customers_data' , JSON.stringify(newData));
             loadData();
-            loadCustomerTable();
+            refreshPage();
 
             Swal.fire({
                 title: "Updated Customer!",
