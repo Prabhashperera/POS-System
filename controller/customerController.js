@@ -3,7 +3,36 @@ import CustomerModel from "../model/CustomerModel.js"
 
 //Customer Save
 let customerSaveBtn = $(".customer_Save_Clicked");
-let customerTable = $(".customer_Table");
+
+
+const savedCustomers = localStorage.getItem('customers_data');
+if (savedCustomers) {
+    customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
+}
+
+loadCustomerTable();
+
+function loadCustomerTable() {
+    let customerTable = $(".customer_Table").empty();
+    customers_DB.map((customer) => {  //Map All the data from DB Array and assign it to Customer Table
+        let id = customer.cust_ID;
+        let name = customer.cust_Name;
+        let address = customer.cust_Address;
+        let number = customer.cust_Number;
+
+        let data = `
+        <tr>
+        <th scope="row">${id}</th>
+        <td>${name}</td>
+        <td>${address}</td>
+        <td>${number}</td>
+        </tr>
+        `
+
+        customerTable.append(data);
+
+    })
+}
 
 customerSaveBtn.on("click" , () => {
 
@@ -21,15 +50,6 @@ customerSaveBtn.on("click" , () => {
         return;
     }
 
-    let data = `
-            <tr>
-            <th scope="row">${customerID}</th>
-            <td>${customerName}</td>
-            <td>${customerAddress}</td>
-            <td>${customerNumber}</td>
-            </tr>
-    `
-
     const isExistID = customers_DB.some(customer => customer.cust_ID == customerID);
     if(isExistID) {
         Swal.fire({
@@ -41,9 +61,9 @@ customerSaveBtn.on("click" , () => {
 
     let customerData = new CustomerModel(customerID, customerName, customerAddress, customerNumber);
     if(!isExistID) {
-        customers_DB.push(customerData);
-        localStorage.setItem('customers_data',  JSON.stringify(customers_DB));
-        customerTable.append(data);
+        customers_DB.push(customerData); //Push customer Data to DB
+        localStorage.setItem('customers_data',  JSON.stringify(customers_DB)); //Save DB to LocalStorage
+        loadCustomerTable(); //Load Table
         if(customerData != null) {
             Swal.fire({
                 title: "Customer Saved!",
