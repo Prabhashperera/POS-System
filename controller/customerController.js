@@ -51,12 +51,13 @@ function loadCustomerTable() {
             console.log(selectedCustomerId);
             console.log(selectedCustomerName);
 
+            //After Selecting Customer.. all the inputs takes the values
             if(selectedCustomerId != null) {
                 $(".customer_ID").val(selectedCustomerId);
                 $(".customer_Name").val(selectedCustomerName);
                 $(".customer_Address").val(selectedCustomerAddress);
                 $(".customer_Number").val(selectedCustomerNumber);
-                $(".customer_ID").prop("disabled", true);
+                $(".customer_ID").prop("disabled", true); //Disable ID Field
             }
         });
 
