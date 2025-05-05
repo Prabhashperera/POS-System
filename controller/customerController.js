@@ -5,11 +5,15 @@ import CustomerModel from "../model/CustomerModel.js"
 let selectedCustomerId = null;
 let selectedCustomerName = null;
 
-const savedCustomers = localStorage.getItem('customers_data');
-if (savedCustomers) {
-customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
+function loadData() {
+    customers_DB.length = 0;
+    const savedCustomers = localStorage.getItem('customers_data');
+    if (savedCustomers) {
+    customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
+    }
 }
 
+loadData();
 loadCustomerTable();
 
 // Load Customer Table
@@ -121,5 +125,7 @@ customerRemoveBtn.on("click", () => {
         title: "Customer Removed!",
         icon: "success"
     });
+
+    loadData();
     loadCustomerTable();
 })
