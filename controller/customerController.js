@@ -5,10 +5,9 @@ import CustomerModel from "../model/CustomerModel.js"
 let selectedCustomerId = null;
 let selectedCustomerName = null;
 
-
 const savedCustomers = localStorage.getItem('customers_data');
 if (savedCustomers) {
-    customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
+customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
 }
 
 loadCustomerTable();
@@ -24,7 +23,7 @@ function loadCustomerTable() {
 
         let data = `
         <tr>
-        <th scope="row">${id}</th>
+        <td>${id}</td>
         <td>${name}</td>
         <td>${address}</td>
         <td>${number}</td>
@@ -35,17 +34,27 @@ function loadCustomerTable() {
 
     });
 
-        //Row selection
+        //Table Row selection
         $('.customer_Table').on('click', 'tr', function(){
             $('.customer_Table tr').removeClass('table-active'); // clear previous selection
             $(this).addClass('table-active'); // highlight selected row
     
             selectedCustomerId = $(this).find('td:eq(0)').text().trim();
             selectedCustomerName = $(this).find('td:eq(1)').text().trim();
+            let selectedCustomerAddress = $(this).find('td:eq(2)').text().trim();
+            let selectedCustomerNumber = $(this).find('td:eq(3)').text().trim(); 
             console.log("Row selected");
             console.log(selectedCustomerId);
             console.log(selectedCustomerName);
+
+            if(selectedCustomerId != null) {
+                $(".customer_ID").val(selectedCustomerId);
+                $(".customer_Name").val(selectedCustomerName);
+                $(".customer_Address").val(selectedCustomerAddress);
+                $(".customer_Number").val(selectedCustomerNumber);
+            }
         });
+
 }
 
 
@@ -100,5 +109,17 @@ customerSaveBtn.on("click" , () => {
 let customerRemoveBtn = $(".customer_Remove_Clicked");
 
 customerRemoveBtn.on("click", () => {
+    let storageCustomers = localStorage.getItem('customers_data');
+    let customersArray = [];
+    if(storageCustomers) {
+        customersArray.push(...JSON.parse(storageCustomers));
+    }
+    let updatedArray = customersArray.filter((customers) => customers.cust_ID !== selectedCustomerId)
+    localStorage.setItem('customers_data' , JSON.stringify(updatedArray));
 
+    Swal.fire({
+        title: "Customer Removed!",
+        icon: "success"
+    });
+    loadCustomerTable();
 })
