@@ -140,3 +140,11 @@
 .items_Section {
   display: none;
 }
+
+.customer_Table {
+  cursor: pointer;
+}
+
+.table-active {
+  color: #48daff;
+}

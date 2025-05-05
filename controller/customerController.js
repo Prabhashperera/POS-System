@@ -1,8 +1,9 @@
 import {customers_DB} from "../db/db.js"
 import CustomerModel from "../model/CustomerModel.js"
 
-//Customer Save
-let customerSaveBtn = $(".customer_Save_Clicked");
+
+let selectedCustomerId = null;
+let selectedCustomerName = null;
 
 
 const savedCustomers = localStorage.getItem('customers_data');
@@ -12,6 +13,7 @@ if (savedCustomers) {
 
 loadCustomerTable();
 
+// Load Customer Table
 function loadCustomerTable() {
     let customerTable = $(".customer_Table").empty();
     customers_DB.map((customer) => {  //Map All the data from DB Array and assign it to Customer Table
@@ -31,8 +33,24 @@ function loadCustomerTable() {
 
         customerTable.append(data);
 
-    })
+    });
+
+        //Row selection
+        $('.customer_Table').on('click', 'tr', function(){
+            $('.customer_Table tr').removeClass('table-active'); // clear previous selection
+            $(this).addClass('table-active'); // highlight selected row
+    
+            selectedCustomerId = $(this).find('td:eq(0)').text().trim();
+            selectedCustomerName = $(this).find('td:eq(1)').text().trim();
+            console.log("Row selected");
+            console.log(selectedCustomerId);
+            console.log(selectedCustomerName);
+        });
 }
+
+
+// TODO: Save Customer
+let customerSaveBtn = $(".customer_Save_Clicked");
 
 customerSaveBtn.on("click" , () => {
 
@@ -73,5 +91,14 @@ customerSaveBtn.on("click" , () => {
         }
     }
 
+
+})
+
+
+// TODO: Delete Customer
+
+let customerRemoveBtn = $(".customer_Remove_Clicked");
+
+customerRemoveBtn.on("click", () => {
 
 })
