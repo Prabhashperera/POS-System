@@ -170,3 +170,13 @@ customerUpdateBtn.on("click", () => {
         });
     }
 });
+
+// TODO: Refresh
+let refreshBtn = $(".customer_Refresh_Clicked");
+refreshBtn.on("click", () => {
+    $(".customer_ID").val('');
+    $(".customer_ID").prop("disabled", false);
+    $(".customer_Name").val('');
+    $(".customer_Address").val('');
+    $(".customer_Number").val('');
+})
