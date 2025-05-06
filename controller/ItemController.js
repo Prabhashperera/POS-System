@@ -94,3 +94,32 @@ itemSaveBtn.on("click" , () => {
     loadItemsTable();
 
 })
+
+// TODO: Remove Item
+let itemRemoveBtn = $(".item_Remove_Clicked");
+
+itemRemoveBtn.on("click", () => {
+    if(selectedItemID == null) {
+        Swal.fire({
+            title: "Select a Item First!",
+            icon: "warning",
+            draggable: true
+        });
+        return;
+    }
+    let itemData = localStorage.getItem('items_data');
+    let data = []
+    data.push(...JSON.parse(itemData));
+    let newDataArray = data.filter((item) => item.item_ID !== selectedItemID);
+    console.log(newDataArray);
+    localStorage.setItem('items_data' , JSON.stringify(newDataArray));
+
+    Swal.fire({
+        title: "Item Removed!",
+        icon: "success",
+        draggable: true
+    });
+
+    loadData();
+    loadItemsTable();
+})
