@@ -28,27 +28,5 @@ homeBtn.on("click" , () => {
 
 // Item Save
 
-let itemSaveBtn = $(".item_Save_Clicked");
-let itemTable = $(".item_Table");
-
-itemSaveBtn.on("click" , () => {
-
-    let itemID = $(".item_ID").val();
-    let ItemName = $(".item_Name").val();
-    let ItemPrice = $(".item_Price").val();
-    let ItemQty = $(".item_Qty").val();
-
-    let data = `
-            <tr>
-            <th scope="row">${itemID}</th>
-            <td>${ItemName}</td>
-            <td>${ItemPrice}</td>
-            <td>${ItemQty}</td>
-            </tr>
-    `
-    itemTable.append(data) 
-    console.log(data);
-
-})
 
 
