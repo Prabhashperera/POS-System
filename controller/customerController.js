@@ -173,7 +173,7 @@ customerUpdateBtn.on("click", () => {
 
 // TODO: Refresh
 let refreshBtn = $(".customer_Refresh_Clicked");
-refreshBtns.on("click", () => {
+refreshBtn.on("click", () => {
     refreshPage();
 })
 
