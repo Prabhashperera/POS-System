@@ -22,7 +22,9 @@
     <!-- NAVBAR SECTION -->
     <nav class="navbar navbar-expand-sm">
       <div class="container-fluid">
-        <a class="brandName navbar-brand fw-bold mx-5" href="#">POS System</a>
+        <a class="brandName navbar-brand fw-bold mx-5" href="#"
+          >ZEIDOT Stocks</a
+        >
         <button
           class="navbar-toggler navbar-dark"
           type="button"
@@ -41,7 +43,7 @@
                 class="nav-link active home_Clicked"
                 aria-current="page"
                 href="#"
-                >Home</a
+                >Dashboard</a
               >
             </li>
             <li class="nav-item">
@@ -218,7 +220,38 @@
     </section>
 
     <!-- TODO: Order Section -->
-    <section class="container hero orders_Section"></section>
+    <section class="container hero orders_Section mt-4">
+      <main class="invoice-card">
+        <div>
+          <label for="" class="d-block my-2">Order ID</label>
+          <input class="item_Price" type="text" placeholder="100" />
+        </div>
+        <div>
+          <label for="" class="d-block my-2">Date</label>
+          <input class="item_Qty" type="date" placeholder="20" />
+        </div>
+        <div>
+          <label for="" class="d-block my-2">Customer</label>
+          <button class="btn btn-danger select_cust">Select Customer</button>
+        </div>
+        <div>
+          <label for="" class="d-block my-2">Customer ID</label>
+          <input class="item_Qty" type="text" placeholder="20" />
+        </div>
+        <div>
+          <label for="" class="d-block my-2">Customer Name</label>
+          <input class="item_Qty" type="text" placeholder="20" />
+        </div>
+        <div>
+          <label for="" class="d-block my-2">Phone</label>
+          <input class="item_Qty" type="text" placeholder="20" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="d-block my-2">Address</label>
+          <input class="item_Qty" type="text" placeholder="20" />
+        </div>
+      </main>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

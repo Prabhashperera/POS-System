@@ -143,6 +143,7 @@
 
 .orders_Section {
   display: none;
+  min-height: 400px;
 }
 
 .customer_Table,
@@ -153,4 +154,44 @@
 /* Js Class */
 .table-active {
   color: #48daff;
+}
+
+/* Order Page */
+
+.invoice-card {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top: 25px;
+  background-color: white;
+  width: 40%;
+  border-radius: 10px;
+  min-height: 200px;
+  margin-left: 20px;
+}
+
+.invoice-card input {
+  padding: 10px;
+  min-width: 200px;
+  height: 35px;
+  border: 1px solid black;
+  outline: none;
+  font-size: 13px;
+  transition: all 1.5s;
+  border-radius: 5px;
+}
+
+.invoice-card button {
+  min-width: 200px;
+}
+
+.invoice-card div {
+  padding: 4px;
+  margin-left: 30px;
+}
+
+.invoice-card input:focus {
+  transition: 0.5s;
+  border-radius: 5px;
+  font-style: italic;
 }
