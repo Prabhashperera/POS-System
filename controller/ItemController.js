@@ -91,7 +91,7 @@ itemSaveBtn.on("click" , () => {
     });
 
     loadData();
-    loadItemsTable();
+    refreshPage();
 
 })
 
@@ -121,7 +121,7 @@ itemRemoveBtn.on("click", () => {
     });
 
     loadData();
-    loadItemsTable();
+    refreshPage();
 })
 
 //TODO: Update Item
@@ -144,7 +144,7 @@ itemUpdateBtn.on("click", () => {
     }
     localStorage.setItem('items_data' , JSON.stringify(itemDataArray));
     loadData();
-    loadItemsTable();
+    refreshPage();
     Swal.fire({
         title: "Item Updated!",
         icon: "success",
@@ -152,4 +152,19 @@ itemUpdateBtn.on("click", () => {
     });
 
 
-})
+});
+
+let refreshClickedBtn = $(".item_Refresh_Clicked");
+
+refreshClickedBtn.on("click" , () => {
+    refreshPage();
+});
+
+function refreshPage() {
+    loadItemsTable();
+    $(".item_ID").prop("disabled", false);
+    $(".item_ID").val('');
+    $(".item_Name").val('');
+    $(".item_Price").val('');
+    $(".item_Qty").val('');
+}

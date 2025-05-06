@@ -23,10 +23,3 @@ homeBtn.on("click" , () => {
     customerSection.css("display" , "none");
     homePageSection.css("display" , "block");
 })
-
-
-
-// Item Save
-
-
-
