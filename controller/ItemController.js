@@ -2,6 +2,9 @@ import {items_DB} from '../db/db.js'
 import ItemModel from '../model/ItemModel.js'
 
 
+let selectedItemID = null;
+let selectedItemName = null;
+
 function loadData() {
     items_DB.length = 0;
     let itemsData = localStorage.getItem('items_data');
@@ -30,9 +33,31 @@ function loadItemsTable() {
         </tr>
         `
         itemTable.append(data);
-    })
-}
+    });
 
+    //Table Row selection
+    $('.item_Table').on('click', 'tr', function(){
+        $('.item_Table tr').removeClass('table-active'); // clear previous selection
+        $(this).addClass('table-active'); // highlight selected row
+
+        selectedItemID = $(this).find('td:eq(0)').text().trim();
+        selectedItemName = $(this).find('td:eq(1)').text().trim();
+        let selectedItemPrice = $(this).find('td:eq(2)').text().trim();
+        let selectedItemQty = $(this).find('td:eq(3)').text().trim(); 
+        console.log("Row selected");
+        console.log(selectedItemID);
+        console.log(selectedItemName);
+
+        //After Selecting Customer.. all the inputs takes the values
+        if(selectedItemID != null) {
+            $(".item_ID").val(selectedItemID);
+            $(".item_Name").val(selectedItemName);
+            $(".item_Price").val(selectedItemPrice);
+            $(".item_Qty").val(selectedItemQty);
+            $(".item_ID").prop("disabled", true); //Disable ID Field
+        }
+    });
+}
 
 
 
@@ -46,7 +71,7 @@ itemSaveBtn.on("click" , () => {
     let itemPrice = $(".item_Price").val();
     let itemQty = $(".item_Qty").val();
 
-    if (itemID == '' && itemName == '' && itemPrice == '' && itemQty == '') {
+    if (itemID == '' || itemName == '' || itemPrice == '' || itemQty == '') {
         Swal.fire({
             title: "All the Fileds Must Be Filled!",
             icon: "warning",

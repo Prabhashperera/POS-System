@@ -74,7 +74,7 @@ customerSaveBtn.on("click" , () => {
     let customerAddress = $(".customer_Address").val();
     let customerNumber = $(".customer_Number").val();
 
-    if (customerID == '' && customerName == '' && customerAddress == '' && customerNumber == '') {
+    if (customerID == '' || customerName == '' || customerAddress == '' || customerNumber == '') {
         Swal.fire({
             title: "Cannot Saved!",
             icon: "warning",
