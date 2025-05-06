@@ -141,7 +141,7 @@
   display: none;
 }
 
-.customer_Table {
+.customer_Table , .item_Table {
   cursor: pointer;
 }
 

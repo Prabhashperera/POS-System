@@ -123,3 +123,33 @@ itemRemoveBtn.on("click", () => {
     loadData();
     loadItemsTable();
 })
+
+//TODO: Update Item
+let itemUpdateBtn = $(".item_Update_Clicked");
+itemUpdateBtn.on("click", () => {
+    // let itemID = $(".item_ID").val();
+    let itemName = $(".item_Name").val();
+    let itemPrice = $(".item_Price").val();
+    let itemQty = $(".item_Qty").val();
+
+
+    let itemData = localStorage.getItem('items_data');
+    let itemDataArray = [];
+    itemDataArray.push(...JSON.parse(itemData));
+    let foundedIndex = itemDataArray.findIndex((i) => i.item_ID === selectedItemID);
+    if(foundedIndex != -1) {
+        itemDataArray[foundedIndex].item_Name = itemName;
+        itemDataArray[foundedIndex].item_Price = itemPrice;
+        itemDataArray[foundedIndex].item_Qty = itemQty;
+    }
+    localStorage.setItem('items_data' , JSON.stringify(itemDataArray));
+    loadData();
+    loadItemsTable();
+    Swal.fire({
+        title: "Item Updated!",
+        icon: "success",
+        draggable: true
+    });
+
+
+})
