@@ -143,7 +143,7 @@
 
 .orders_Section {
   display: none;
-  min-height: 400px;
+  min-height: 430px;
 }
 
 .customer_Table,
@@ -158,16 +158,20 @@
 
 /* Order Page */
 
+.main-conatainer {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
 .invoice-card {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  top: 25px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 40%;
   border-radius: 10px;
   min-height: 200px;
-  margin-left: 20px;
 }
 
 .invoice-card input {
@@ -183,6 +187,11 @@
 
 .invoice-card button {
   min-width: 200px;
+  border: none;
+}
+
+.address {
+  width: 435px;
 }
 
 .invoice-card div {
@@ -194,4 +203,55 @@
   transition: 0.5s;
   border-radius: 5px;
   font-style: italic;
+}
+
+.item-card {
+  /* display: flex; */
+  flex-wrap: wrap;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 40%;
+  border-radius: 10px;
+  min-height: 200px;
+}
+
+.item-card input {
+  padding: 10px;
+  min-width: 200px;
+  height: 35px;
+  border: 1px solid black;
+  outline: none;
+  font-size: 13px;
+  transition: all 1.5s;
+  border-radius: 5px;
+}
+
+.item-card button {
+  min-width: 200px;
+  border: none;
+}
+
+.item-card div {
+  margin-top: 8px;
+  margin-left: 30px;
+}
+
+.btn-orange {
+  background-color: #fb8500;
+  color: white;
+}
+.order_main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.purchase-Section {
+  position: absolute;
+  top: 450px;
+  position: relative;
+  border-radius: 1rem;
+  background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
+  width: 100vw;
+  min-height: 200px;
 }
