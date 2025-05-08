@@ -94,7 +94,7 @@ input:disabled {
 .btn-outline-info {
   border: 1px solid #4d6eff;
   box-shadow: 0 4px 15px rgba(0, 128, 255, 0.6);
-  color: white;
+  color: black;
   width: 120px;
 }
 

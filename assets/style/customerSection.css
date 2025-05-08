@@ -18,6 +18,8 @@
 
 .card {
   background: linear-gradient(rgb(170, 235, 255), #b3a4ff);
+  background: linear-gradient(rgb(170, 235, 255), #ffa4fd);
+
   border-radius: 20px;
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
