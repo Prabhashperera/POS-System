@@ -136,7 +136,12 @@
           <div class="col">
             <div data-mdb-input-init class="form-outline">
               <label class="form-label" for="form6Example1">Customer ID</label>
-              <input type="text" id="form6Example1" class="form-control" placeholder="C001"/>
+              <input
+                type="text"
+                id="form6Example1"
+                class="form-control customer_ID"
+                placeholder="C001"
+              />
             </div>
           </div>
           <div class="col">
@@ -144,7 +149,12 @@
               <label class="form-label" for="form6Example1"
                 >Customer Name</label
               >
-              <input type="text" id="form6Example1" class="form-control" placeholder="Prabash Perera" />
+              <input
+                type="text"
+                id="form6Example1"
+                class="form-control customer_Name"
+                placeholder="Prabash Perera"
+              />
             </div>
           </div>
           <div class="col">
@@ -152,7 +162,12 @@
               <label class="form-label" for="form6Example2"
                 >Mobile Number</label
               >
-              <input type="text" id="form6Example2" class="form-control" placeholder="0704570039" />
+              <input
+                type="text"
+                id="form6Example2"
+                class="form-control customer_Number"
+                placeholder="0704570039"
+              />
             </div>
           </div>
           <div class="row mt-4">
@@ -160,15 +175,20 @@
               <label class="form-label" for="form6Example2"
                 >Customer Address</label
               >
-              <input type="text" id="form6Example2" class="form-control" placeholder="11/6 Blasius Raad Moratuwa / Indibeda" />
+              <input
+                type="text"
+                id="form6Example2"
+                class="form-control customer_Address"
+                placeholder="11/6 Blasius Raad Moratuwa / Indibeda"
+              />
             </div>
           </div>
           <div class="row">
             <div class="btn-group gap-3 w-50 mt-5">
-              <div class="btn btn-pink">Add</div>
-              <div class="btn btn-primary">Update</div>
-              <div class="btn btn-danger">Remove</div>
-              <div class="btn btn-outline-info">Refresh</div>
+              <div class="btn btn-pink customer_Save_Clicked">Add</div>
+              <div class="btn btn-primary customer_Update_Clicked">Update</div>
+              <div class="btn btn-danger customer_Remove_Clicked">Remove</div>
+              <div class="btn btn-outline-info customer_Refresh_Clicked">Refresh</div>
             </div>
           </div>
         </div>
@@ -184,7 +204,7 @@
               <th scope="col">Address</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="customer_Table">
             <tr>
               <td scope="row">1</td>
               <td>Sit</td>

@@ -123,7 +123,7 @@ customerRemoveBtn.on("click", () => {
     localStorage.setItem('customers_data' , JSON.stringify(updatedArray));
 
     Swal.fire({
-        title: "Customer Saved!",
+        title: "Customer Removed!",
         icon: "success",
         draggable: true
     });
