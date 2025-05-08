@@ -68,7 +68,117 @@
   color: white;
 }
 
+/* Hero Section */
+
+.hero-section {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .sign-btn-grp {
   position: relative;
   right: 100px;
+}
+
+.hero-imgs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 70px;
+}
+.hero-imgs div {
+  width: 200px;
+  height: 270px;
+  background-color: darkblue;
+  border-radius: 20px;
+}
+
+.hero-imgs div:nth-child(1) {
+  background-color: darkblue;
+}
+
+.floating-icons div {
+  background-color: #ff7be5;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+}
+
+.floating-icons div:first-child {
+  background-color: #ff4ddb;
+  position: fixed;
+  right: 10%;
+  transition: 0.5s;
+
+}
+
+.hero-imgs div:first-child {
+  background: url("https://cdn.pixabay.com/photo/2024/02/26/14/13/shopping-8598070_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(138, 138, 138, 0.6);
+  transition: 0.5s;
+}
+
+.hero-imgs div:nth-child(2) h5 {
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #4400ff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+
+}
+
+.hero-imgs div:nth-child(2) p {
+  transition: 0.5s;
+}
+
+.hero-imgs div:nth-child(2) p {
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.hero-imgs div:nth-child(4) h5 {
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #4400ff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.hero-imgs div:nth-child(4) p {
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.hero-imgs div:nth-child(3) {
+  background: url("https://cdn.pixabay.com/photo/2017/10/14/13/16/bag-2850502_1280.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 20px rgba(138, 138, 138, 0.6);
+  cursor: pointer;
+  transition: 0.5s;
+
+
+}
+
+.hero-imgs div:nth-child(4) {
+  cursor: pointer;
+  transition: 0.5s;
+
+}
+
+.hero-imgs div:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
 }
