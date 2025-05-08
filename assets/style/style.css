@@ -4,254 +4,71 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-dark-blue: #001545;
-  --color-light-blue: #8ecae6;
-  --color-blue-buttons: #219ebc;
-  --color-orange: #fb8500;
-  --color-yellow: #ffb703;
-}
-
-.btn-success {
-  background-color: rgb(0, 185, 40) !important;
-}
-.btn-danger {
-  background-color: red;
-}
-
-.search-btn {
-  margin-top: 10px;
-  width: 200px;
-}
-
-.brandName {
-  color: white;
-}
+/* Navbar */
 
 .navbar {
-  background-color: var(--color-dark-blue);
-  color: white;
+  height: 80px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-brand {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
 .nav-link {
-  color: white;
+  color: black !important;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
-.hero {
-  position: relative;
-  border-radius: 1rem;
-  background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
-  width: 100vw;
-  min-height: 350px;
+.fa-user {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
 }
 
-.customer-form {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  color: white;
-  justify-content: center;
-}
-
-.customer-form input {
-  width: 300px;
-  height: 35px;
-  border: none;
-  outline: none;
-  font-size: 13px;
-  transition: all 1.5s;
-}
-
-.customer-form input:focus {
-  transition: 0.5s;
-  border-radius: 5px;
-  font-style: italic;
-}
-
-.customer-form [type="text"] {
-  border: none;
-  border-bottom: 2px solid blue;
-  padding-left: 10px;
-}
-
-.customer_id_input:disabled {
-  border-bottom: 2px solid rgb(30, 255, 0) !important;
-  color: white !important;
-  opacity: 1 !important;
-  background-color: rgb(16, 0, 59);
-}
-
-.crud-customer-btn-grp button {
-  position: relative;
-  font-size: 0.9rem;
-  left: 13%;
-  top: 32vh;
-  width: 150px;
-  border-radius: 5px !important;
-}
-
-.customer-table-section,
-.item-table-section {
-  position: relative;
-  width: 100vw;
-  height: 300px;
-  margin-top: 30px;
-  border-radius: 1rem;
-  background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
-  overflow-y: scroll;
-}
-
-.customer-table-section .table,
-.item-table-section .table {
-  width: 85%;
-  margin: auto;
-  position: relative;
-  top: 40px;
-  color: white;
-}
-
-.search-customer {
-  width: 100%;
-  right: -500px;
-}
-
-@media (max-width: 576px) {
-  .hero {
-    border-radius: 0;
-  }
-}
-
-@media (min-width: 768px) {
-}
-
-@media (min-width: 992px) {
-}
-
-@media (min-width: 1200px) {
-}
-
-@media (min-width: 1400px) {
-}
-
-.customer_Section {
-  display: none;
-}
-
-.items_Section {
-  display: none;
-}
-
-.orders_Section {
-  display: none;
-  min-height: 430px;
-}
-
-.customer_Table,
-.item_Table {
-  cursor: pointer;
-}
-
-/* Js Class */
-.table-active {
-  color: #48daff;
-}
-
-/* Order Page */
-
-.main-conatainer {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-}
-
-.invoice-card {
+.avatar {
+  width: 45px;
+  height: 45px;
+  background-color: #eee;
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  background-color: rgb(255, 255, 255);
-  width: 40%;
-  border-radius: 10px;
-  min-height: 200px;
+  justify-content: center;
+  align-items: center;
 }
 
-.invoice-card input {
-  padding: 10px;
-  min-width: 200px;
-  height: 35px;
-  border: 1px solid black;
-  outline: none;
-  font-size: 13px;
-  transition: all 1.5s;
-  border-radius: 5px;
+.avatar i {
+  font-size: 24px;
+  color: #333;
 }
 
-.invoice-card button {
-  min-width: 200px;
-  border: none;
+.btn-pink {
+  background-color: #ff4ddb;
+  background: linear-gradient(#ff4ddb, #ff7be5);
+  box-shadow: 0 4px 15px rgba(255, 77, 219, 0.6);
+  color: white;
+  width: 120px;
 }
 
-.address {
-  width: 435px;
-}
-
-.invoice-card div {
-  padding: 4px;
-  margin-left: 30px;
-}
-
-.invoice-card input:focus {
-  transition: 0.5s;
-  border-radius: 5px;
-  font-style: italic;
-}
-
-.item-card {
-  /* display: flex; */
-  flex-wrap: wrap;
-  position: relative;
-  background-color: rgb(255, 255, 255);
-  width: 40%;
-  border-radius: 10px;
-  min-height: 200px;
-}
-
-.item-card input {
-  padding: 10px;
-  min-width: 200px;
-  height: 35px;
-  border: 1px solid black;
-  outline: none;
-  font-size: 13px;
-  transition: all 1.5s;
-  border-radius: 5px;
-}
-
-.item-card button {
-  min-width: 200px;
-  border: none;
-}
-
-.item-card div {
-  margin-top: 8px;
-  margin-left: 30px;
-}
-
-.btn-orange {
-  background-color: #fb8500;
+.btn-pink:hover {
   color: white;
 }
-.order_main {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+
+.btn-outline-pink {
+  border: 1px solid #ff4ddb;
+  box-shadow: 0 4px 15px rgba(255, 77, 219, 0.6);
+  width: 120px;
 }
 
-.purchase-Section {
-  position: absolute;
-  top: 450px;
+.btn-outline-pink:hover {
+  background-color: #ff4ddb;
+  color: white;
+}
+
+.sign-btn-grp {
   position: relative;
-  border-radius: 1rem;
-  background: linear-gradient(#001545, #300182, rgb(15, 0, 77));
-  width: 100vw;
-  min-height: 200px;
+  right: 100px;
 }
