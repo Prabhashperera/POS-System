@@ -53,7 +53,34 @@
   width: 120px;
 }
 
+.btn-primary {
+  background-color: rgb(0, 76, 255);
+  background: linear-gradient(rgb(0, 76, 255), #4422ff);
+  box-shadow: 0 4px 15px rgba(17, 36, 242, 0.6);
+  color: white;
+  width: 120px;
+}
+
+.btn-danger {
+  background-color: rgb(255, 0, 0);
+  background: linear-gradient(rgb(255, 0, 0), #ff3838);
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.6);
+  color: white;
+  width: 120px;
+}
+
 .btn-pink:hover {
+  color: white;
+}
+
+.btn-outline-info {
+  border: 1px solid #4d6eff;
+  box-shadow: 0 4px 15px rgba(0, 128, 255, 0.6);
+  color: #4d6eff;
+  width: 120px;
+}
+
+.btn-outline-info:hover {
   color: white;
 }
 

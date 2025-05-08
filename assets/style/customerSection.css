@@ -1,4 +1,22 @@
-
 .btn-group .btn {
-    border-radius: 5px !important;
+  border-radius: 5px !important;
+}
+
+.table-head {
+  background: linear-gradient(#e224bc, #f636d0);
+  color: white;
+}
+
+.card-title {
+  position: relative;
+  top: -40px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #5a24e2;
+  color: white;
+}
+
+.card {
+  background-color: rgb(170, 235, 255);
+  border-radius: 20px;
 }
