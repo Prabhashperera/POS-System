@@ -25,6 +25,10 @@ input:disabled {
   color: greenyellow;
 }
 
+.orders_Section {
+  display: none;
+}
+
 .navbar-brand {
   background-color: black;
   color: white;
@@ -135,6 +139,7 @@ input:disabled {
   gap: 60px;
   margin-top: 70px;
 }
+
 .hero-imgs div {
   width: 240px;
   height: 270px;
