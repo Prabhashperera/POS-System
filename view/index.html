@@ -289,8 +289,8 @@
     </section>
     <!-- Item End -->
     <!-- Order Start -->
-    <section class="orders_Section container">
-      <main class="row gap-2 mt-5">
+    <section class="orders_Section container fw-bold">
+      <main class="row gap-3 mt-4">
         <section class="col card order-card">
           <div class="row p-4">
             <div class="col">
@@ -404,9 +404,49 @@
           </div>
         </section>
       </main>
-      <div class="row">
-        <div class="col">
-          <h1>Hello</h1>
+      <!-- TODO: Purchase Section -->
+      <div class="row mt-4">
+        <div style="min-height: 200px;" class="col card">
+          <div class="row px-4 py-4">
+            <div class="col">
+              <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Cash</label>
+                <input
+                type="number"
+                id="form6Example1"
+                class="form-control order_Cash"
+                placeholder="3500.00"
+              />
+              </div>
+            </div>
+            <div class="col">
+              <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Discount</label>
+                <input
+                  type="number"
+                  id="form6Example1"
+                  class="form-control order_Discount"
+                  placeholder="10%"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div data-mdb-input-init class="form-outline">
+                <label class="form-label" for="form6Example1">Balance</label>
+                <input
+                  type="number"
+                  id="form6Example1"
+                  class="form-control order_Balance"
+                  placeholder="3000.00"
+                />
+              </div>
+            </div>
+            <div class="row py-5">
+              <div class="col">
+                <button style="width: 100%;" class="btn btn-primary order_Purchase_Clicked">Purchase</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
