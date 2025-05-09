@@ -1,4 +1,12 @@
-
 .order-card {
-    height: 50vh;
+  height: 50vh;
+}
+
+.find-customer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 200px;
+  background-color: aliceblue;
+  opacity: 90%;
 }
