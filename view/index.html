@@ -451,7 +451,7 @@
       </div>
       <!-- FIND CUSTOMER -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Customer Records</h5>
@@ -459,11 +459,23 @@
 
             </div>
             <div class="modal-body">
-
+              <section class="card p-5 border-black">
+                <table class="table align-middle table-striped table-bordered">
+                  <thead class="table-head">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Customer Name</th>
+                      <th scope="col">Number</th>
+                      <th scope="col">Address</th>
+                    </tr>
+                  </thead>
+                  <tbody class="customer_Table"></tbody>
+                </table>
+              </section>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button style="width: 200px;" type="button" class="btn btn-pink">Save changes</button>
+              <button style="width: 200px;" type="button" class="btn btn-pink">Select</button>
             </div>
           </div>
         </div>
