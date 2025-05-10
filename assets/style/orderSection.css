@@ -7,6 +7,14 @@
   height: 100vh;
   position: fixed;
   top: 200px;
-  background-color: aliceblue;
-  opacity: 90%;
+}
+
+.modal-header .close {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: black; /* or whatever your modal text color is */
+}
+
+.modal-header {
+  background: linear-gradient(#dae4ff, #ffa0ec);
 }
