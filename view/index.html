@@ -353,56 +353,43 @@
           </div>
           </div>
         </section>
-        <section class="col card ">
+        <section class="col card">
           <div class="row px-4 py-4">
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item ID</label> <br>
-                <button style="width: 260px;" class="btn btn-pink order_Item_ID">FIND</button>
+                <button style="width: 260px;"  data-bs-toggle="modal" data-bs-target="#item-Modal" class="btn btn-pink order_Item_ID">FIND</button>
               </div>
             </div>
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item Name</label>
-                <input
-                  type="text"
-                  id="form6Example1"
-                  class="form-control order_Item_Name"
-                  placeholder="VIgen Smack"
-                />
+                <input type="text" class="form-control order_Item_Name" placeholder="Vigen Smack" />
               </div>
             </div>
           </div>
+        
           <div class="row px-4 py-4">
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item Price</label>
-                <input
-                type="text"
-                id="form6Example1"
-                class="form-control order_Item_Price"
-                placeholder="350.00"
-              />
+                <input type="text" class="form-control order_Item_Price" placeholder="350.00" />
               </div>
             </div>
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item Qty</label>
-                <input
-                  type="number"
-                  id="form6Example1"
-                  class="form-control order_Item_Qty"
-                  placeholder="30"
-                />
-              </div>
-            </div>
-            <div class="row py-5">
-              <div class="col">
-                <button style="width: 100%; border: 3px solid white;" class="btn btn-outline-pink">Add Item</button>
+                <input type="number" class="form-control order_Item_Qty" placeholder="30" />
               </div>
             </div>
           </div>
-        </section>
+        
+          <div class="row py-5 px-4">
+            <div class="col">
+              <button style="width: 100%;" class="btn btn-pink order_Add_Item">Add Item</button>
+            </div>
+          </div>
+        </section>        
       </main>
       <!-- TODO: Purchase Section -->
       <div class="row mt-4">
@@ -475,6 +462,40 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button style="width: 200px;" type="button" class="btn btn-pink">Select</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- FIND CUSTOMER -->
+      <!-- FIND Item -->
+      <!-- Button trigger modal -->
+      <!-- Modal -->
+      <div class="modal modal-item fade" id="item-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Customer Records</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+              <section class="card p-5 border-black">
+                <table class="table align-middle table-striped table-bordered">
+                  <thead class="table-head">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Item Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Qty</th>
+                    </tr>
+                  </thead>
+                  <tbody class="item_Table"></tbody>
+                </table>
+              </section>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button style="width: 200px;" type="button" class="btn btn-pink">Select</button>
             </div>
           </div>

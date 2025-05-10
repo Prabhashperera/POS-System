@@ -1,9 +1,5 @@
 
-$('.findCustomer-Modal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
-
-
+// Customer FIND
     $('.customer_Table').on('click', 'tr', function(){
     $('.customer_Table tr').removeClass('table-active'); // clear previous selection
     $(this).addClass('table-active'); // highlight selected row
