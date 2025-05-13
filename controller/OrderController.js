@@ -64,6 +64,12 @@ function refreshPage() {
     $(".ordered_QTY").val('');
 }
 
+function refreshPurchase() {
+    $(".order_Balance").val('');
+    $(".order_Cash").val('');
+    $(".order_Discount").val('');
+}
+
 
 let addItemBtn = $(".order_Add_Item");
 addItemBtn.on("click", () => {
@@ -79,8 +85,10 @@ addItemBtn.on("click", () => {
 
 function setCash(price) {
     if(!isNaN(price)) {
-        cashValue += Number.parseInt(price);
+        let qty = Number.parseInt($(".ordered_QTY").val());
+        cashValue += Number.parseInt(price) * qty;
         $(".order_Cash").val(cashValue);
+        $(".order_Balance").val(cashValue);
         console.log(cashValue)
     };
 }
@@ -105,7 +113,7 @@ function saveToObj() {
         $(".order_Item_ID").text(),
         $(".order_Item_Name").val(),
         $(".order_Item_Price").val(),
-        $(".order_Item_Qty").val()
+        $(".ordered_QTY").val()
     );
     orderModel.setItems = itemModel;
 }
@@ -141,4 +149,16 @@ purchaseBtn.on("click", () => {
     console.log(orders_DB);
     cashValue = 0;
     orderModel = new OrderModel();
+});
+
+
+
+$(".onTypeDiscount").on('input', () => {
+    let cash = Number.parseFloat($(".order_Cash").val());
+    let percentage = Number.parseFloat($(".onTypeDiscount").val());
+    let percentValue = (cash * percentage) / 100;
+    let balance = cash - percentValue;
+    console.log(balance);
+    $(".order_Balance").val(balance);
+    console.log("Pressed");
 });
