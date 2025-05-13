@@ -1,3 +1,10 @@
+import {orders_DB} from '../db/db.js'
+import OrderModel from '../model/OrderModel.js'
+import ItemModel from '../model/ItemModel.js'
+
+
+var cash = 0;
+
 
 // Customer FIND
     $('.customer_Table').on('click', 'tr', function(){
@@ -46,4 +53,78 @@ $('.item_Table').on('click', 'tr', function(){
         $(".order_Item_Qty").val(selectedItemQty);
         // $(".item_ID").prop("disabled", true); //Disable ID Field
     }
+});
+
+
+function refreshPage() {
+    $(".order_Item_ID").text('FIND');
+    $(".order_Item_Name").val('');
+    $(".order_Item_Price").val('');
+    $(".order_Item_Qty").val('');
+}
+
+
+let addItemBtn = $(".order_Add_Item");
+addItemBtn.on("click", () => {
+    let price = $(".order_Item_Price").val();
+    if(price != '') {
+        setCash(price);
+        saveToObj();
+        refreshPage();
+    }
+
+});
+
+function setCash(price) {
+    if(!isNaN(price)) {
+        cash += Number.parseInt(price);
+        $(".order_Cash").val(cash);
+        console.log(cash)
+    };
+}
+
+
+// SAVE
+let orderModel = new OrderModel();
+
+function saveToObj() {
+    let itemModel = new ItemModel(
+        $(".order_Item_ID").text(),
+        $(".order_Item_Name").val(),
+        $(".order_Item_Price").val(),
+        $(".order_Item_Qty").val()
+    );
+    orderModel.setItems = itemModel;
+}
+
+let purchaseBtn = $(".order_Purchase_Clicked")
+purchaseBtn.on("click", () => {
+    let orderID = $(".order_ID").val();
+    let orderDate = $(".order_Date").val();
+    let custID = $(".order_Customer_ID").text();
+    let custName = $(".order_Customer_Name").val();
+    let custAddress = $(".order_Customer_Address").val();
+    let custNumber = $(".order_Customer_Number").val();
+
+    let totalAmount = $(".order_Balance").val();
+    let cash = $(".order_Cash").val();
+    let discount = $(".order_Discount").val();
+
+    orderModel.order_ID = orderID;
+    orderModel.order_Date = orderDate;
+    orderModel.customer_ID = custID;
+    orderModel.customer_Name = custName;
+    orderModel.customer_Address = custAddress;
+    orderModel.customer_Number = custNumber;
+
+    orderModel.total_order_amount = totalAmount;
+    orderModel.order_cash = cash;
+    orderModel.order_discount = discount;
+
+    orders_DB.length = 0;
+    orders_DB.push(orderModel);
+    localStorage.setItem('orders_data', JSON.stringify(orders_DB));
+    console.log(orders_DB);
+    cash = 0;
+    orderModel.reset();
 });
