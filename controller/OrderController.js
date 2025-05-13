@@ -50,7 +50,7 @@ $('.item_Table').on('click', 'tr', function(){
         $(".order_Item_ID").text(selectedItemID);
         $(".order_Item_Name").val(selectedItemName);
         $(".order_Item_Price").val(selectedItemPrice);
-        $(".order_Item_Qty").val("Avaialble QTY : " + selectedItemQty);
+        $(".order_Item_Qty").text(selectedItemQty);
         // $(".item_ID").prop("disabled", true); //Disable ID Field
     }
 });
@@ -60,7 +60,8 @@ function refreshPage() {
     $(".order_Item_ID").text('FIND');
     $(".order_Item_Name").val('');
     $(".order_Item_Price").val('');
-    $(".order_Item_Qty").val('');
+    $(".order_Item_Qty").text('0');
+    $(".ordered_QTY").val('');
 }
 
 
@@ -85,13 +86,14 @@ function setCash(price) {
 }
 
 function setQty() {
-    let orderedQty = Number.parseInt($(".order_Item_Qty").val());
+    let orderedQty = Number.parseInt($(".ordered_QTY").val());
     let itemID = $(".order_Item_ID").text();
     let foundedIndex = items_DB.findIndex((item) => item.item_ID === itemID);
     let storedQty = items_DB[foundedIndex].item_Qty;
     let finalQty = storedQty - orderedQty;
     items_DB[foundedIndex].item_Qty = finalQty;
     console.log("Final Qty " + items_DB[foundedIndex].item_Qty);
+    refreshPage();
 }
 
 
