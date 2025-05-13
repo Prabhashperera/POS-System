@@ -5,6 +5,8 @@ import CustomerModel from "../model/CustomerModel.js"
 let selectedCustomerId = null;
 let selectedCustomerName = null;
 
+$(".customer_ID").val(generateNextCustomerID());
+
 loadCustomerTable();
 
 //TODO: Load Customer Table
@@ -161,10 +163,24 @@ refreshBtn.on("click", () => {
 })
 
 function refreshPage () {
-    $(".customer_ID").val('');
+    $(".customer_ID").val(generateNextCustomerID());
     $(".customer_ID").prop("disabled", false);
     $(".customer_Name").val('');
     $(".customer_Address").val('');
     $(".customer_Number").val('');
     loadCustomerTable();
+}
+
+function generateNextCustomerID() {
+    if (customers_DB.length === 0) return "C001"; // first customer
+
+    // Get the last customer's ID
+    let lastCustomerID = customers_DB[customers_DB.length - 1].cust_ID; // e.g., "C003"
+
+    // Extract number, increment, pad with zeros
+    let lastNumber = parseInt(lastCustomerID.substring(1)); // 3
+    let nextNumber = lastNumber + 1; // 4
+
+    // Return with padding (e.g., C004)
+    return "C" + nextNumber.toString().padStart(3, '0');
 }
