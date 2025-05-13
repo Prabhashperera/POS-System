@@ -5,6 +5,9 @@ import ItemModel from '../model/ItemModel.js'
 
 var cashValue = 0;
 
+$(".order_ID").val(generateNextOrderID());
+
+
 
 // Customer FIND
     $('.customer_Table').on('click', 'tr', function(){
@@ -65,6 +68,7 @@ function refreshPage() {
 }
 
 function refreshPurchase() {
+    $(".order_ID").val(generateNextOrderID());
     $(".order_Balance").val('');
     $(".order_Cash").val('');
     $(".order_Discount").val('');
@@ -162,3 +166,17 @@ $(".onTypeDiscount").on('input', () => {
     $(".order_Balance").val(balance);
     console.log("Pressed");
 });
+
+function generateNextOrderID() {
+    if (orders_DB.length === 0) return "ORD001"; // first customer
+
+    // Get the last customer's ID
+    let lastOrderID = orders_DB[orders_DB.length - 1].order_ID; // e.g., "C003"
+
+    // Extract number, increment, pad with zeros
+    let lastNumber = parseInt(lastOrderID.substring(3)); // 3
+    let nextNumber = lastNumber + 1; // 4
+
+    // Return with padding (e.g., C004)
+    return "ORD" + nextNumber.toString().padStart(3, '0');
+}
