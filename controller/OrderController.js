@@ -108,7 +108,8 @@ function saveToObj() {
     orderModel.setItems = itemModel;
 }
 
-let purchaseBtn = $(".order_Purchase_Clicked")
+let purchaseBtn = $(".order_Purchase_Clicked");
+
 purchaseBtn.on("click", () => {
     let orderID = $(".order_ID").val();
     let orderDate = $(".order_Date").val();
