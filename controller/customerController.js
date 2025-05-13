@@ -58,6 +58,17 @@ function loadCustomerTable() {
 
 }
 
+// Validation Methods
+function isValidNumber(number) {
+    return /^(?:\+94|0)?7\d{8}$/.test(number);
+}
+
+function isValidName(name) {
+    return /^[A-Za-z\s]{5,50}$/.test(name);
+}
+
+
+
 
 // TODO: Save Customer
 let customerSaveBtn = $(".customer_Save_Clicked");
@@ -78,6 +89,25 @@ customerSaveBtn.on("click" , () => {
         return;
     }
 
+    // Validation For Phone Number
+    if(!isValidNumber(customerNumber)) {
+            Swal.fire({
+            title: "Invalid Number Format!",
+            icon: "warning",
+            draggable: true
+        });
+        return;
+    }
+
+    // Validation for Customer Name
+    if(!isValidName(customerName)) {
+            Swal.fire({
+            title: "Invalid Name Format!",
+            icon: "warning",
+            draggable: true
+        });
+        return;
+    }
     const isExistID = customers_DB.some(customer => customer.cust_ID == customerID);
     if(isExistID) {
         Swal.fire({
