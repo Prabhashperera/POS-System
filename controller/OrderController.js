@@ -1,4 +1,4 @@
-import {orders_DB} from '../db/db.js'
+import {orders_DB, items_DB} from '../db/db.js'
 import OrderModel from '../model/OrderModel.js'
 import ItemModel from '../model/ItemModel.js'
 
@@ -70,6 +70,7 @@ addItemBtn.on("click", () => {
     if(price != '') {
         setCash(price);
         saveToObj();
+        setQty();
         refreshPage();
     }
 
@@ -81,6 +82,16 @@ function setCash(price) {
         $(".order_Cash").val(cashValue);
         console.log(cashValue)
     };
+}
+
+function setQty() {
+    let orderedQty = Number.parseInt($(".order_Item_Qty").val());
+    let itemID = $(".order_Item_ID").text();
+    let foundedIndex = items_DB.findIndex((item) => item.item_ID === itemID);
+    let storedQty = items_DB[foundedIndex].item_Qty;
+    let finalQty = storedQty - orderedQty;
+    items_DB[foundedIndex].item_Qty = finalQty;
+    console.log("Final Qty " + items_DB[foundedIndex].item_Qty);
 }
 
 
