@@ -5,15 +5,6 @@ import ItemModel from '../model/ItemModel.js'
 let selectedItemID = null;
 let selectedItemName = null;
 
-function loadData() {
-    items_DB.length = 0;
-    let itemsData = localStorage.getItem('items_data');
-    if(itemsData) {
-        items_DB.push(...JSON.parse(itemsData));
-    }
-}
-
-loadData();
 loadItemsTable();
 
 function loadItemsTable() {
@@ -82,7 +73,6 @@ itemSaveBtn.on("click" , () => {
 
     let itemModel = new ItemModel(itemID, itemName, itemPrice, itemQty);
     items_DB.push(itemModel);
-    localStorage.setItem('items_data', JSON.stringify(items_DB));
 
     Swal.fire({
         title: "Item Saved!",
@@ -90,7 +80,6 @@ itemSaveBtn.on("click" , () => {
         draggable: true
     });
 
-    loadData();
     refreshPage();
 
 })
@@ -107,12 +96,11 @@ itemRemoveBtn.on("click", () => {
         });
         return;
     }
-    let itemData = localStorage.getItem('items_data');
-    let data = []
-    data.push(...JSON.parse(itemData));
-    let newDataArray = data.filter((item) => item.item_ID !== selectedItemID);
+
+    let newDataArray = items_DB.filter((item) => item.item_ID !== selectedItemID);
     console.log(newDataArray);
-    localStorage.setItem('items_data' , JSON.stringify(newDataArray));
+    items_DB.length = 0;
+    items_DB.push(...newDataArray);
 
     Swal.fire({
         title: "Item Removed!",
@@ -120,7 +108,6 @@ itemRemoveBtn.on("click", () => {
         draggable: true
     });
 
-    loadData();
     refreshPage();
 })
 
@@ -132,18 +119,13 @@ itemUpdateBtn.on("click", () => {
     let itemPrice = $(".item_Price").val();
     let itemQty = $(".item_Qty").val();
 
-
-    let itemData = localStorage.getItem('items_data');
-    let itemDataArray = [];
-    itemDataArray.push(...JSON.parse(itemData));
-    let foundedIndex = itemDataArray.findIndex((i) => i.item_ID === selectedItemID);
+    let foundedIndex = items_DB.findIndex((i) => i.item_ID === selectedItemID);
     if(foundedIndex != -1) {
-        itemDataArray[foundedIndex].item_Name = itemName;
-        itemDataArray[foundedIndex].item_Price = itemPrice;
-        itemDataArray[foundedIndex].item_Qty = itemQty;
+        items_DB[foundedIndex].item_Name = itemName;
+        items_DB[foundedIndex].item_Price = itemPrice;
+        items_DB[foundedIndex].item_Qty = itemQty;
     }
-    localStorage.setItem('items_data' , JSON.stringify(itemDataArray));
-    loadData();
+    
     refreshPage();
     Swal.fire({
         title: "Item Updated!",
