@@ -71,16 +71,27 @@ itemSaveBtn.on("click" , () => {
         return;
     }
 
-    let itemModel = new ItemModel(itemID, itemName, itemPrice, itemQty);
-    items_DB.push(itemModel);
+    const isExistID = items_DB.some(item => item.item_ID == itemID);
+    if(isExistID) {
+        Swal.fire({
+            title: "Item ID Exists!",
+            icon: "warning",
+            draggable: true
+        });
+    }
 
-    Swal.fire({
-        title: "Item Saved!",
-        icon: "success",
-        draggable: true
-    });
+    if(!isExistID) {
+        let itemModel = new ItemModel(itemID, itemName, itemPrice, itemQty);
+        items_DB.push(itemModel);
 
-    refreshPage();
+        Swal.fire({
+            title: "Item Saved!",
+            icon: "success",
+            draggable: true
+        });
+
+        refreshPage();
+    }
 
 })
 
