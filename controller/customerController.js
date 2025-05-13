@@ -124,16 +124,12 @@ let customerUpdateBtn = $(".customer_Update_Clicked");
 
 customerUpdateBtn.on("click", () => {
     if(selectedCustomerId != null) {
-        let customersData = localStorage.getItem('customers_data');
-        let newData = JSON.parse(customersData);
-        let foundIndex = newData.findIndex((c) => c.cust_ID === selectedCustomerId);
+        let foundIndex = customers_DB.findIndex((c) => c.cust_ID === selectedCustomerId);
         if(foundIndex != -1) {
-            newData[foundIndex].cust_Name = $(".customer_Name").val();
-            newData[foundIndex].cust_Address = $(".customer_Address").val();
-            newData[foundIndex].cust_Number = $(".customer_Number").val();
+            customers_DB[foundIndex].cust_Name = $(".customer_Name").val();
+            customers_DB[foundIndex].cust_Address = $(".customer_Address").val();
+            customers_DB[foundIndex].cust_Number = $(".customer_Number").val();
 
-            localStorage.setItem('customers_data' , JSON.stringify(newData));
-            loadData();
             refreshPage();
 
             Swal.fire({
