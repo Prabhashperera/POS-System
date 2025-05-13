@@ -80,7 +80,6 @@ addItemBtn.on("click", () => {
         setQty();
         refreshPage();
     }
-
 });
 
 function setCash(price) {
@@ -149,6 +148,7 @@ purchaseBtn.on("click", () => {
     console.log(orders_DB);
     cashValue = 0;
     orderModel = new OrderModel();
+    refreshPurchase();
 });
 
 
