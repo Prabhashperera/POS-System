@@ -3,7 +3,7 @@ import OrderModel from '../model/OrderModel.js'
 import ItemModel from '../model/ItemModel.js'
 
 
-var cash = 0;
+var cashValue = 0;
 
 
 // Customer FIND
@@ -125,6 +125,6 @@ purchaseBtn.on("click", () => {
     orders_DB.push(orderModel);
     localStorage.setItem('orders_data', JSON.stringify(orders_DB));
     console.log(orders_DB);
-    cash = 0;
-    orderModel.reset();
+    cashValue = 0;
+    orderModel = new OrderModel();
 });
