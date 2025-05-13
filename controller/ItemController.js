@@ -5,6 +5,9 @@ import ItemModel from '../model/ItemModel.js'
 let selectedItemID = null;
 let selectedItemName = null;
 
+$(".item_ID").val(generateNextItemID());
+
+
 loadItemsTable();
 
 function loadItemsTable() {
@@ -156,8 +159,22 @@ refreshClickedBtn.on("click" , () => {
 function refreshPage() {
     loadItemsTable();
     $(".item_ID").prop("disabled", false);
-    $(".item_ID").val('');
+    $(".item_ID").val(generateNextItemID());
     $(".item_Name").val('');
     $(".item_Price").val('');
     $(".item_Qty").val('');
+}
+
+function generateNextItemID() {
+    if (items_DB.length === 0) return "I001"; // first customer
+
+    // Get the last customer's ID
+    let lastItemID = items_DB[items_DB.length - 1].item_ID; // e.g., "C003"
+
+    // Extract number, increment, pad with zeros
+    let lastNumber = parseInt(lastItemID.substring(1)); // 3
+    let nextNumber = lastNumber + 1; // 4
+
+    // Return with padding (e.g., C004)
+    return "I" + nextNumber.toString().padStart(3, '0');
 }
