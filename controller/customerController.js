@@ -5,21 +5,13 @@ import CustomerModel from "../model/CustomerModel.js"
 let selectedCustomerId = null;
 let selectedCustomerName = null;
 
-function loadData() {
-    customers_DB.length = 0;
-    const savedCustomers = localStorage.getItem('customers_data');
-    if (savedCustomers) {
-    customers_DB.push(...JSON.parse(savedCustomers)); // Now it's an array again!
-    }
-}
-
-loadData();
 loadCustomerTable();
 
 //TODO: Load Customer Table
 function loadCustomerTable() {
     let customerTable = $(".customer_Table").empty();
-    customers_DB.map((customer) => {  //Map All the data from DB Array and assign it to Customer Table
+    if(customers_DB != null) {
+        customers_DB.map((customer) => {  //Map All the data from DB Array and assign it to Customer Table
         let id = customer.cust_ID;
         let name = customer.cust_Name;
         let address = customer.cust_Address;
@@ -37,6 +29,7 @@ function loadCustomerTable() {
         customerTable.append(data);
 
     });
+    }
 
         //Table Row selection
         $('.customer_Table').on('click', 'tr', function(){
@@ -95,7 +88,6 @@ customerSaveBtn.on("click" , () => {
     let customerData = new CustomerModel(customerID, customerName, customerAddress, customerNumber);
     if(!isExistID) {
         customers_DB.push(customerData); //Push customer Data to DB
-        localStorage.setItem('customers_data',  JSON.stringify(customers_DB)); //Save DB to LocalStorage
         refreshPage(); //Load Table
         if(customerData != null) {
             Swal.fire({
@@ -114,13 +106,9 @@ customerSaveBtn.on("click" , () => {
 let customerRemoveBtn = $(".customer_Remove_Clicked");
 
 customerRemoveBtn.on("click", () => {
-    let storageCustomers = localStorage.getItem('customers_data');
-    let customersArray = [];
-    if(storageCustomers) {
-        customersArray.push(...JSON.parse(storageCustomers));
-    }
-    let updatedArray = customersArray.filter((customers) => customers.cust_ID !== selectedCustomerId)
-    localStorage.setItem('customers_data' , JSON.stringify(updatedArray));
+    let updatedArray = customers_DB.filter((customers) => customers.cust_ID !== selectedCustomerId)
+    customers_DB.length = 0;
+    customers_DB.push(...updatedArray);
 
     Swal.fire({
         title: "Customer Removed!",
@@ -128,7 +116,6 @@ customerRemoveBtn.on("click", () => {
         draggable: true
     });
 
-    loadData();
     refreshPage();
 })
 

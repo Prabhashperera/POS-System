@@ -50,7 +50,7 @@ $('.item_Table').on('click', 'tr', function(){
         $(".order_Item_ID").text(selectedItemID);
         $(".order_Item_Name").val(selectedItemName);
         $(".order_Item_Price").val(selectedItemPrice);
-        $(".order_Item_Qty").val(selectedItemQty);
+        $(".order_Item_Qty").val("Avaialble QTY : " + selectedItemQty);
         // $(".item_ID").prop("disabled", true); //Disable ID Field
     }
 });
@@ -77,9 +77,9 @@ addItemBtn.on("click", () => {
 
 function setCash(price) {
     if(!isNaN(price)) {
-        cash += Number.parseInt(price);
-        $(".order_Cash").val(cash);
-        console.log(cash)
+        cashValue += Number.parseInt(price);
+        $(".order_Cash").val(cashValue);
+        console.log(cashValue)
     };
 }
 
