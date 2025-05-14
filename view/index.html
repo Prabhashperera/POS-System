@@ -73,6 +73,9 @@
             <li class="nav-item">
               <a class="nav-link order_Clicked" href="#">Orders</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link order_Details_Clicked" href="#">Order Details</a>
+            </li>
           </ul>
           <!-- Left links -->
         </div>
@@ -242,7 +245,7 @@
             <div data-mdb-input-init class="form-outline">
               <label class="form-label" for="form6Example2">Item Price</label>
               <input
-                type="text"
+                type="number"
                 id="form6Example2"
                 class="form-control item_Price"
                 placeholder="1400.00"
@@ -253,7 +256,7 @@
             <div data-mdb-input-init class="form-outline">
               <label class="form-label" for="form6Example2">Item Qty</label>
               <input
-                type="text"
+                type="number"
                 id="form6Example2"
                 class="form-control item_Qty"
                 placeholder="200"
@@ -373,13 +376,13 @@
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item Price</label>
-                <input type="text" class="form-control order_Item_Price" placeholder="350.00" />
+                <input type="number" class="form-control order_Item_Price" placeholder="350.00" />
               </div>
             </div>
             <div class="col">
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Item Qty</label>
-                <input required type="text" class="form-control ordered_QTY" placeholder="30" />
+                <input required type="number" class="form-control ordered_QTY" placeholder="30" />
                 <label class="fw-normal mt-3 text-muted" for="">Available QTY : </label>
                 <label for="" class="fw-semibold order_Item_Qty">0</label>
               </div>
@@ -423,7 +426,7 @@
               <div data-mdb-input-init class="form-outline">
                 <label class="form-label" for="form6Example1">Balance</label>
                 <input
-                  type="text"
+                  type="number"
                   id="form6Example1"
                   class="form-control order_Balance"
                   placeholder="3000.00"
@@ -505,6 +508,8 @@
       </div>
     </section>
     <!-- Order END -->
+    <!-- Order Details Start -->
+    <!-- Order Details END -->
 
 
     <!-- Scripts -->
