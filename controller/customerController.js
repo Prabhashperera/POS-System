@@ -78,10 +78,47 @@ $(".customer_Name").on("input", function () {
     const name = $(this).val();
     if (!isValidName(name)) {
         $(this).css("border", "2px solid red");
+        $(".name-error").text("Name must be letters only, min 3 characters.");
     } else {
         $(this).css("border", "2px solid green");
+        $(".name-error").text("");
     }
 });
+
+$(".customer_Number").on("input", function () {
+    const number = $(this).val();
+    if (!isValidNumber(number)) {
+        $(this).css("border", "2px solid red");
+        $(".number-error").text("Phone number must be 10 digits.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".number-error").text("");
+    }
+});
+
+$(".customer_ID").on("input", function () {
+    const value = $(this).val();
+    if (value.trim() === "") {
+        $(this).css("border", "2px solid red");
+        $(".id-error").text("Customer ID cannot be empty.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".id-error").text("");
+    }
+});
+
+$(".customer_Address").on("input", function () {
+    const value = $(this).val();
+    if (value.trim() === "") {
+        $(this).css("border", "2px solid red");
+        $(".address-error").text("Address cannot be empty.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".address-error").text("");
+    }
+});
+
+
 
 $(".customer_Number").on("input", function () {
     const number = $(this).val();
@@ -248,6 +285,8 @@ function generateNextCustomerID() {
 
 function clearFormStyles() {
     $(".customer_ID, .customer_Name, .customer_Address, .customer_Number").each(function () {
-        $(this).css("border", ""); // Removes any inline border styling
+        $(this).css("border", "");
     });
+    $(".error-message").text(""); // Clear all validation messages
 }
+

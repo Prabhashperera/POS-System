@@ -29,3 +29,12 @@
 .items_Section {
     display: none;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: normal;
+    display: block;
+}
+
