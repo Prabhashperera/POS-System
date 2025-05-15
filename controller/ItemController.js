@@ -54,6 +54,49 @@ function loadItemsTable() {
 }
 
 
+$(".item_ID").on("input", function () {
+    const value = $(this).val();
+    if (value.trim() === "") {
+        $(this).css("border", "2px solid red");
+        $(".item-id-error").text("Item ID cannot be empty.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".item-id-error").text("");
+    }
+});
+
+$(".item_Name").on("input", function () {
+    const name = $(this).val();
+    if (!/^[A-Za-z\s]{3,}$/.test(name)) {
+        $(this).css("border", "2px solid red");
+        $(".item-name-error").text("Name must be at least 3 letters.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".item-name-error").text("");
+    }
+});
+
+$(".item_Price").on("input", function () {
+    const price = $(this).val();
+    if (!/^\d+(\.\d{1,2})?$/.test(price)) {
+        $(this).css("border", "2px solid red");
+        $(".item-price-error").text("Enter a valid price (e.g., 10.99).");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".item-price-error").text("");
+    }
+});
+
+$(".item_Qty").on("input", function () {
+    const qty = $(this).val();
+    if (!/^\d+$/.test(qty) || parseInt(qty) <= 0) {
+        $(this).css("border", "2px solid red");
+        $(".item-qty-error").text("Quantity must be a positive number.");
+    } else {
+        $(this).css("border", "2px solid green");
+        $(".item-qty-error").text("");
+    }
+});
 
 
 // TODO: Save Item
@@ -74,13 +117,52 @@ itemSaveBtn.on("click" , () => {
         return;
     }
 
+    // Field Validation
+    if (itemID == '' || itemName == '' || itemPrice == '' || itemQty == '') {
+        Swal.fire({
+            title: "All the Fields Must Be Filled!",
+            icon: "warning",
+            draggable: true
+        });
+        return;
+    }
+
+    // Extra Validation
+    if (!/^[A-Za-z\s]{3,}$/.test(itemName)) {
+        Swal.fire({
+            title: "Invalid Item Name!",
+            icon: "warning",
+            text: "Must be letters only (min 3 characters)."
+        });
+        return;
+    }
+
+    if (!/^\d+(\.\d{1,2})?$/.test(itemPrice)) {
+        Swal.fire({
+            title: "Invalid Price Format!",
+            icon: "warning",
+            text: "Use numeric values like 10 or 10.99."
+        });
+        return;
+    }
+
+    if (!/^\d+$/.test(itemQty) || parseInt(itemQty) <= 0) {
+        Swal.fire({
+            title: "Invalid Quantity!",
+            icon: "warning",
+            text: "Quantity must be a whole number greater than 0."
+        });
+        return;
+    }
+
     const isExistID = items_DB.some(item => item.item_ID == itemID);
-    if(isExistID) {
+    if (isExistID) {
         Swal.fire({
             title: "Item ID Exists!",
             icon: "warning",
             draggable: true
         });
+        return;
     }
 
     if(!isExistID) {
@@ -163,6 +245,7 @@ function refreshPage() {
     $(".item_Name").val('');
     $(".item_Price").val('');
     $(".item_Qty").val('');
+    clearItemForm();
 }
 
 function generateNextItemID() {
@@ -178,3 +261,16 @@ function generateNextItemID() {
     // Return with padding (e.g., C004)
     return "I" + nextNumber.toString().padStart(3, '0');
 }
+
+// Validation Methods
+function clearItemForm() {
+    // Clear the input fields
+    $(".item_ID, .item_Name, .item_Price, .item_Qty").val("");
+
+    // Reset the borders
+    $(".item_ID, .item_Name, .item_Price, .item_Qty").css("border", "");
+
+    // Clear all error messages under inputs
+    $(".item-id-error, .item-name-error, .item-price-error, .item-qty-error").text("");
+}
+
