@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 /* Navbar */
@@ -36,10 +38,11 @@ input:disabled {
 }
 .nav-link {
   color: black !important;
-  font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .customer_Section {
