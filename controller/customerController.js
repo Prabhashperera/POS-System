@@ -73,6 +73,35 @@ function isValidName(name) {
 // TODO: Save Customer
 let customerSaveBtn = $(".customer_Save_Clicked");
 
+// Real-time validation
+$(".customer_Name").on("input", function () {
+    const name = $(this).val();
+    if (!isValidName(name)) {
+        $(this).css("border", "2px solid red");
+    } else {
+        $(this).css("border", "2px solid green");
+    }
+});
+
+$(".customer_Number").on("input", function () {
+    const number = $(this).val();
+    if (!isValidNumber(number)) {
+        $(this).css("border", "2px solid red");
+    } else {
+        $(this).css("border", "2px solid green");
+    }
+});
+
+$(".customer_ID, .customer_Address").on("input", function () {
+    const value = $(this).val();
+    if (value.trim() === "") {
+        $(this).css("border", "2px solid red");
+    } else {
+        $(this).css("border", "2px solid green");
+    }
+});
+
+
 customerSaveBtn.on("click" , () => {
 
     let customerID = $(".customer_ID").val();
@@ -199,6 +228,7 @@ function refreshPage () {
     $(".customer_Address").val('');
     $(".customer_Number").val('');
     loadCustomerTable();
+    clearFormStyles();
 }
 
 function generateNextCustomerID() {
@@ -213,4 +243,11 @@ function generateNextCustomerID() {
 
     // Return with padding (e.g., C004)
     return "C" + nextNumber.toString().padStart(3, '0');
+}
+
+
+function clearFormStyles() {
+    $(".customer_ID, .customer_Name, .customer_Address, .customer_Number").each(function () {
+        $(this).css("border", ""); // Removes any inline border styling
+    });
 }
