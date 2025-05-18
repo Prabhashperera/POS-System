@@ -1,0 +1,14 @@
+.order_Detail_Section {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.order_Detail_Section {
+  height: 100vh; /* Take full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
