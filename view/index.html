@@ -546,7 +546,23 @@
     <!-- Order END -->
     <!-- Order Details Start -->
     <section class="order_Detail_Section">
-      <div class="order_details">Hello Details</div>
+      <main class="detail-main">
+        <div class="order-detail-card container">
+        <section class="card mt-4 p-5 w-100 border-black order-detail-table">
+        <table class="table align-middle table-striped table-bordered">
+          <thead class="table-head">
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Order Date</th>
+              <th scope="col">Price</th>
+              <th scope="col">Customer Name</th>
+            </tr>
+          </thead>
+          <tbody class="orders_Table"></tbody>
+        </table>
+      </section>
+      </div>
+      </main>
     </section>
     <!-- Order Details END -->
     <!-- Scripts -->
@@ -571,5 +587,6 @@
     <script type="module" src="../controller/CustomerController.js"></script>
     <script type="module" src="../controller/ItemController.js"></script>
     <script type="module" src="../controller/OrderController.js"></script>
+    <script type="module" src="../controller/OrderDetailController.js"></script>
   </body>
 </html>

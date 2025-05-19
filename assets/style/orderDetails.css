@@ -1,1 +1,21 @@
+.order_Detail_Section {
+  position: absolute;
+}
 
+.detail-main {
+  width: 100dvw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+
+.order-detail-card {
+    border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  width: 100vw;
+  height: 550px;
+  margin-top: 50px;
+  justify-content: center;
+}
