@@ -49,6 +49,10 @@ input:disabled {
   display: none;
 }
 
+.order_Detail_Section {
+  display: none;
+}
+
 .fa-user {
   display: inline-block;
   width: 40px;
