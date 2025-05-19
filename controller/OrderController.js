@@ -83,6 +83,15 @@ let addItemBtn = $(".order_Add_Item");
 addItemBtn.on("click", () => {
     let price = $(".order_Item_Price").val();
     if(price != '') {
+        let qty = Number.parseInt($(".order_Item_Qty"));
+        if (qty < 1) {
+            Swal.fire({
+            title: "Item Sold Out!",
+            icon: "warning",
+            draggable: true
+        });
+            return;
+        }
         setCash(price);
         saveToObj();
         setQty();
@@ -108,7 +117,6 @@ function setQty() {
     let finalQty = storedQty - orderedQty;
     items_DB[foundedIndex].item_Qty = finalQty;
     console.log("Final Qty " + items_DB[foundedIndex].item_Qty);
-    refreshPage();
 }
 
 
@@ -210,3 +218,25 @@ function loadItemsTable() {
         itemTable.append(data);
     });
 }
+
+$('.order_Item_Table').on('click', 'tr', function(){
+        $('.item_Table tr').removeClass('table-active'); // clear previous selection
+        $(this).addClass('table-active'); // highlight selected row
+
+        selectedItemID = $(this).find('td:eq(0)').text().trim();
+        selectedItemName = $(this).find('td:eq(1)').text().trim();
+        let selectedItemPrice = $(this).find('td:eq(2)').text().trim();
+        let selectedItemQty = $(this).find('td:eq(3)').text().trim(); 
+        console.log("Row selected");
+        console.log(selectedItemID);
+        console.log(selectedItemName);
+
+        //After Selecting Customer.. all the inputs takes the values
+        if(selectedItemID != null) {
+            $(".item_ID").val(selectedItemID);
+            $(".item_Name").val(selectedItemName);
+            $(".item_Price").val(selectedItemPrice);
+            $(".item_Qty").val(selectedItemQty);
+            $(".item_ID").prop("disabled", true); //Disable ID Field
+        }
+    });
