@@ -18,3 +18,7 @@
 .modal-header {
   background: linear-gradient(#dae4ff, #ffa0ec);
 }
+
+.order-detail-table {
+  padding-top: 10px;
+}

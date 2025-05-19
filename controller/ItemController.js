@@ -233,19 +233,19 @@ itemUpdateBtn.on("click", () => {
 });
 
 let refreshClickedBtn = $(".item_Refresh_Clicked");
-
 refreshClickedBtn.on("click" , () => {
     refreshPage();
 });
 
 function refreshPage() {
-    loadItemsTable();
-    $(".item_ID").prop("disabled", false);
+    clearItemForm();
     $(".item_ID").val(generateNextItemID());
+    console.log("Genrated ID : " + generateNextItemID());
+    $(".item_ID").prop("disabled", false);
     $(".item_Name").val('');
     $(".item_Price").val('');
     $(".item_Qty").val('');
-    clearItemForm();
+    loadItemsTable();
 }
 
 function generateNextItemID() {

@@ -2,11 +2,13 @@ import {orders_DB, items_DB} from '../db/db.js'
 import OrderModel from '../model/OrderModel.js'
 import ItemModel from '../model/ItemModel.js'
 
+refreshPage();
+
+const itemsArray = [];
 
 var cashValue = 0;
 
 $(".order_ID").val(generateNextOrderID());
-
 
 
 // Customer FIND
@@ -118,6 +120,9 @@ function saveToObj() {
         $(".order_Item_Price").val(),
         $(".ordered_QTY").val()
     );
+    // Push Items after adding items
+    itemsArray.push(itemModel);
+    loadItemsTable()
     orderModel.setItems = itemModel;
 }
 
@@ -179,4 +184,27 @@ function generateNextOrderID() {
 
     // Return with padding (e.g., C004)
     return "ORD" + nextNumber.toString().padStart(3, '0');
+}
+
+function loadItemsTable() {
+    let itemTable = $(".order_Item_Table").empty();
+
+    console.log(itemsArray);
+
+    itemsArray.map((items) => {
+        let itemID = items.item_ID;
+        let itemName = items.item_Name;
+        let itemPrice = items.item_Price;
+        let itemQty = items.item_Qty;
+
+        let data = `
+        <tr>
+        <td>${itemID}</td>
+        <td>${itemName}</td>
+        <td>${itemPrice}</td>
+        <td>${itemQty}</td>
+        </tr>
+        `;
+        itemTable.append(data);
+    });
 }
