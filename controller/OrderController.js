@@ -70,6 +70,8 @@ function refreshPage() {
 }
 
 function refreshPurchase() {
+    itemsArray.length = 0;
+    loadItemsTable();
     $(".order_ID").val(generateNextOrderID());
     $(".order_Balance").val('');
     $(".order_Cash").val('');
