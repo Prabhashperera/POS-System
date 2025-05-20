@@ -76,6 +76,7 @@ function refreshPurchase() {
     $(".order_Balance").val('');
     $(".order_Cash").val('');
     $(".order_Discount").val('');
+    setItemsCount();
 }
 
 
@@ -240,3 +241,10 @@ $('.order_Item_Table').on('click', 'tr', function(){
             $(".item_ID").prop("disabled", true); //Disable ID Field
         }
     });
+
+
+function setItemsCount() {
+    let ordersCount = 0;
+    orders_DB.map(() => ordersCount++);
+    $(".orders_Count").text(ordersCount);
+}
