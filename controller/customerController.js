@@ -266,6 +266,7 @@ function refreshPage () {
     $(".customer_Number").val('');
     loadCustomerTable();
     clearFormStyles();
+    setCustomerCount();
 }
 
 function generateNextCustomerID() {
@@ -290,3 +291,10 @@ function clearFormStyles() {
     $(".error-message").text(""); // Clear all validation messages
 }
 
+
+//set Customer Count
+function setCustomerCount() {
+    let cust_Count = 0;
+    customers_DB.map(() => cust_Count++);
+    $(".customer_Count").text(cust_Count);
+}

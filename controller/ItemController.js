@@ -246,6 +246,7 @@ function refreshPage() {
     $(".item_Price").val('');
     $(".item_Qty").val('');
     loadItemsTable();
+    setItemsCount();
 }
 
 function generateNextItemID() {
@@ -274,3 +275,9 @@ function clearItemForm() {
     $(".item-id-error, .item-name-error, .item-price-error, .item-qty-error").text("");
 }
 
+// Item Set Count
+function setItemsCount() {
+    let itemsCount = 0;
+    items_DB.map(() => itemsCount++);
+    $(".item_Count").text(itemsCount);
+}
