@@ -8,6 +8,15 @@ let homePageSection = $(".homePage_Section");
 let itemPageSection = $(".items_Section");
 let orderPageSection = $(".orders_Section");
 let orderDetailsSection = $(".order_Detail_Section");
+let startHereBtn = $(".start_Here_Btn");
+
+startHereBtn.on("click", () => {
+    customerSection.css("display" , "block");
+    homePageSection.css("display" , "none");
+    itemPageSection.css("display" , "none");
+    orderPageSection.css("display" , "none");
+    orderDetailsSection.css("display", "none");
+});
 
 
 itemBtn.on("click" , () => {
